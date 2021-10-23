@@ -1,0 +1,12 @@
+roomTo = 0
+image_speed = 0;
+parentMenu = 0;
+btnId = 0;
+selected = false;
+confirmed = false;
+startingScale = 1;
+bigScale = 1.1;
+smallScale = 0.8;
+active = true;
+confirmSFX = sClickMenu;
+selectedSFX = sNone;

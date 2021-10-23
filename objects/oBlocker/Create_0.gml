@@ -1,0 +1,12 @@
+bounceFactor = 1
+frictionFactor = 1
+passThruX = 0
+passThruY = 0
+active = true;
+isBamboo = false;
+
+grass = 0.4;
+dirt = 0.6;
+wooden = 0.8;
+rock = 1.2;
+metal = 1.8;
