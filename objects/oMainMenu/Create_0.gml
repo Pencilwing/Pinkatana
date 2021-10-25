@@ -1,7 +1,7 @@
 camera = view_get_camera(view_current)
 menuStartY = y;
 cameraStartY = camera_get_view_y(camera)
-cameraFinalY = camera_get_view_y(camera)+540
+cameraFinalY = camera_get_view_y(camera)+600
 ease = 0.05
 btnAmount = 4
 

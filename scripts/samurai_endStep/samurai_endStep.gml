@@ -33,6 +33,12 @@ function samurai_endStep(){
 			{
 			xSpeed = lerp(xSpeed,0,0.1*(instance_place(x,y+1,oBlocker).frictionFactor));
 			}
+			if(!instance_exists(oStopDustVFX))
+			{
+				instance_create_layer(x,y,"VFX",oStopDustVFX)
+			}else{
+				if (oStopDustVFX.image_index == 1) instance_create_layer(x-10*facing,y,"VFX",oStopDustVFX)
+			}
 		}
 		else{ xSpeed = 0;}
 	}
@@ -51,6 +57,7 @@ function samurai_endStep(){
 		yMouse = directionY
 		state = states.attack
 		slashVFX = instance_create_layer(x,y,"VFX",oSlash);
+		playSFX(sSlashAir);
 		slashVFX.owner = self;
 		slashVFX.image_angle = point_direction(x,y,directionX,directionY);
 		attackBounce()
@@ -123,6 +130,28 @@ function attackBounce()
 								mouseYflip = directionY+ 2*(y-directionY)
 								dustVFX = instance_create_layer(x,y,"VFX",oBounceDust)
 								dustVFX.image_angle = point_direction(x,y,directionX,mouseYflip)-90;
+								
+								///ground particles
+									var particleType = blocker_id.bounceFactor
+									var particleAmount = 3
+									var particleSpeed = 3
+									var particleObj = 0
+									
+									if(particleType == blocker_id.grass) particleObj = oGrassVFX; 
+									if(particleType == blocker_id.dirt) {particleObj = oDirtVFX; particleAmount = 6;}
+									if(particleType == blocker_id.rock) {particleObj = oSparkVFX; particleAmount = 10; particleSpeed = 5;}
+									if(particleType == blocker_id.metal) {particleObj = oSparkVFX; particleAmount = 6;particleSpeed = 5;}
+								
+								if(particleObj != 0)
+								{	
+									repeat(particleAmount)
+									{
+										var particle = instance_create_layer(x,y,"VFX",particleObj)
+										var partvec = vector_calc(particleSpeed,random_range(180-30,180+30));
+										particle.xSpeed = partvec[0];
+										particle.ySpeed = partvec[1];
+									}
+								}
 							}else{
 								y += sign(v)
 							}
@@ -158,6 +187,12 @@ function attackBounce()
 								x += sign(h)
 								xSpeed = xSpeed *-1*blocker_id.bounceFactor;
 								ySpeed = ySpeed *blocker_id.bounceFactor;
+								
+								///Spawn Collision VFX on point B
+								mouseYflip = directionY+ 2*(y-directionY)
+								dustVFX = instance_create_layer(x,y,"VFX",oBounceDust)
+								dustVFX.image_angle = point_direction(x,y,directionX,mouseYflip)-90;
+								
 							}else{
 								x += sign(h)
 						    }
@@ -191,8 +226,6 @@ function slashPress()
 	}else{
 		return gamepad_button_check_pressed(oAtuin.currentGamepad,slashB)
 	}
-	
-	
 }
 
 function flowerPowerUpCheck()
@@ -209,6 +242,7 @@ function flowerPowerUpCheck()
 		}
 	}
 }
+
 
 	/*Magic Fuckin code that I'll make work in the morning when my neurons return to me
 	

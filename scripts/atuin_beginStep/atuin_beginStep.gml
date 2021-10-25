@@ -60,7 +60,7 @@ function deviceListener() {
 			if (any_pressed)
 			{
 				controlScheme = 1;
-				if(is_undefined(oCam))
+				if(instance_exists(oCam))
 				{
 					instance_create_layer(oCam.x,oCam.y,"UI",oControlScheme)
 				}
@@ -72,7 +72,7 @@ function deviceListener() {
 	if (deviceCount == 0 && deviceCount != lastDeviceCount)
 	{
 		controlScheme = 0;
-		if(is_undefined(oCam))
+		if(instance_exists(oCam))
 		{
 			instance_create_layer(oCam.x,oCam.y,"UI",oControlScheme)
 		}
@@ -81,7 +81,7 @@ function deviceListener() {
 	if (controlScheme == 1 && mouse_check_button_pressed(mb_left))
 	{
 		controlScheme = 0;
-		if(is_undefined(oCam))
+		if(instance_exists(oCam))
 		{
 			instance_create_layer(oCam.x,oCam.y,"UI",oControlScheme)
 		}

@@ -1,2 +1,3 @@
 bounceAngle = 170;
-bounceForce = 15;
+bounceForce = 10;
+visible = false;

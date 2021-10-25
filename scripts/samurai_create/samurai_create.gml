@@ -5,7 +5,7 @@ function samurai_create(){
 	state = states.idle
 	
 	slashes = 0;
-	slashForce = 8;
+	slashForce = 7;
 	
 	facing = 1;
 	xBounce = 1;

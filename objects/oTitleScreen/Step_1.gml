@@ -2,13 +2,13 @@
 // You can write your code in this editor
 
 
-show_debug_message(sprite_get_number(spr_introSequence))
-show_debug_message(t)
-
-if (t >= sprite_get_number(spr_introSequence) && sprite_index != spr_titleScreen)
+if (t >= 100 && !instance_exists(oTitle))
 {
-	sprite_index = spr_titleScreen
+	image_alpha = 0;
 	instance_create_layer(x,y,"press",oPressAny)
+	var title = instance_create_layer(x,y,"press",oTitle)
+	title.image_xscale = 0.5
 }
 
-if(sprite_index == spr_introSequence) t ++
+
+t ++

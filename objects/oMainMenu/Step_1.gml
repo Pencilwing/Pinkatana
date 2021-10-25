@@ -2,7 +2,7 @@
 // You can write your code in this editor
 ease = ease*1.05
 
-if(room_last = rTitleScreen)
+if(room == rMainMenu)
 {
 	if(camera_get_view_y(camera) <= cameraStartY + cameraFinalY-270)
 	{

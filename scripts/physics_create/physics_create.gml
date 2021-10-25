@@ -1,5 +1,7 @@
 function physics_create() {
 
+	state = 0;
+
 	xSpeed = 0;
 	ySpeed = 0;
 	xSpeedMax = 20;
