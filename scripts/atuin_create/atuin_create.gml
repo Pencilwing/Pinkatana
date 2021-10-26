@@ -30,6 +30,9 @@ function atuin_create() {
 	finalTime = 0;
 	victory = false;
 	time = 0;
+	
+	window_set_fullscreen(true);
+	
 	//gamestate pertinent objects
 	gamestateList = ds_list_create();
 
