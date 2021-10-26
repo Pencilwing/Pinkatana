@@ -10,7 +10,7 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sNone",
+  "soundFile": "sNone.wav",
   "duration": 0.0,
   "parent": {
     "name": "Sound",

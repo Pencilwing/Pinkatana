@@ -30,7 +30,7 @@ btnOptions.startingScale= 0.75
 btnCredits.startingScale= 0.75
 btnExit.startingScale = 0.75
 
-btnPlay.roomTo = rEarthTerrain;
+btnPlay.roomTo = rIntroStory;
 btnOptions.roomTo = rOptionsMenu;
 btnCredits.roomTo = rCreditsMenu;
 

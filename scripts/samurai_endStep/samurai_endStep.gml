@@ -138,8 +138,9 @@ function attackBounce()
 									var particleObj = 0
 									
 									if(particleType == blocker_id.grass) particleObj = oGrassVFX; 
+									if(particleType == blocker_id.sakura) {particleObj = oPetalGrassVFX; particleAmount = 4;}
 									if(particleType == blocker_id.dirt) {particleObj = oDirtVFX; particleAmount = 6;}
-									if(particleType == blocker_id.rock) {particleObj = oSparkVFX; particleAmount = 10; particleSpeed = 5;}
+									if(particleType == blocker_id.rock) {particleObj = oSparkVFX; particleAmount = 5; particleSpeed = 5;}
 									if(particleType == blocker_id.metal) {particleObj = oSparkVFX; particleAmount = 6;particleSpeed = 5;}
 								
 								if(particleObj != 0)

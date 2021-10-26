@@ -25,7 +25,11 @@ function atuin_create() {
 	restart = false;
 	t = 0;
 	volumeLevel = 3;
-
+	lastRoom = 0;
+	startingTime = 0;
+	finalTime = 0;
+	victory = false;
+	time = 0;
 	//gamestate pertinent objects
 	gamestateList = ds_list_create();
 

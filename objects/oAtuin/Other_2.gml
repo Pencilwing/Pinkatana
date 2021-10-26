@@ -1,0 +1,1 @@
+startingTime = current_time;

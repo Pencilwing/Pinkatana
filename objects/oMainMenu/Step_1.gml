@@ -2,7 +2,7 @@
 // You can write your code in this editor
 ease = ease*1.05
 
-if(room == rMainMenu)
+if(oAtuin.lastRoom == rTitleScreen)
 {
 	if(camera_get_view_y(camera) <= cameraStartY + cameraFinalY-270)
 	{

@@ -14,7 +14,36 @@ function atuin_beginStep(){
 	LAxRight = gamepad_axis_value(currentGamepad,gp_axislh) > 0.3
 	LAxLeft = gamepad_axis_value(currentGamepad,gp_axislh) < -0.3
 	
+	//timer
+	if(room == rEarthTerrain)
+	{
+		time = current_time;
+
+		if(time == 0)
+		{
+			startingTime = current_time;
+		}
+	}
+	
 }
+
+function victoryTimer()
+{
+		{
+			//returns time in seconds
+			time = floor((current_time - startingTime) /1000)
+	
+			var hour = time div 3600;
+			var minute = (time-(hour*3600)) div 60;
+			var second = time - hour*3600 - minute*60;
+			
+			victory = false;
+			
+			return string(hour)+":"+string(minute)+":"+string(second)
+		}
+}
+
+
 
 function deviceListener() {
 
@@ -92,6 +121,6 @@ function deviceListener() {
 	{
 		controlsEnabled = false;
 	}else{
-		if(!pause) controlsEnabled = true;
+		if(!pause && instance_exists(oVictoryArea)) controlsEnabled = true;
 	}
 }

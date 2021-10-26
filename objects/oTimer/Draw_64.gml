@@ -1,4 +1,4 @@
-draw_set_font(fTimer);
+/*draw_set_font(fTimer);
 
 
 if(hour <10)

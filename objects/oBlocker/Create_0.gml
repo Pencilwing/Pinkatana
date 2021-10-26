@@ -5,6 +5,7 @@ passThruY = 0
 active = true;
 isBamboo = false;
 
+sakura = 0.4;
 grass = 0.5;
 dirt = 0.6;
 wooden = 0.8;

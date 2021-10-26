@@ -14,8 +14,6 @@ function UpdateParallax()
 		
 		p4.x = oEarthBG.x + p4Offx +p4FacX*xDiff
 		p4.y = oEarthBG.y + p4Offy +p4FacY*yDiff
-		
-		show_debug_message("runnin")
 }
 
 UpdateParallax()

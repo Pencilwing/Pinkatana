@@ -7,6 +7,21 @@ function samurai_beginStep() {
 	image_xscale = 1*facing
 	image_speed = oAtuin.playSpeed
 	
+	if(place_meeting(x,y,trigger1))
+	{
+	 oDersuke.chk = 1
+	}
+	
+	if(place_meeting(x,y,trigger2))
+	{
+	 oDersuke.chk = 2
+	}
+	
+	if(place_meeting(x,y,trigger3))
+	{
+	 oDersuke.chk = 3
+	}
+	
 	switch(state)
 	
 	{

@@ -15,4 +15,8 @@ function samurai_create(){
 	
 	yB=0;
 	xB=0;
+	
+	instance_create_layer(x,y,"Instances",oCam)
+	instance_create_layer(x,y,"Instances",oShadow)
+
 }
