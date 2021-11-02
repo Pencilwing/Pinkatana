@@ -5,5 +5,6 @@ if(image_alpha < 1)
 
 if (t > 500)
 {
+	oAtuin.pause = false;
 	room_goto(rTitleScreen)
 }
