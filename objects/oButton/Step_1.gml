@@ -10,7 +10,7 @@ if(active)
 			if(gamepad_button_check_pressed(oAtuin.currentGamepad,gp_face1))
 			{
 				confirmed = true;
-				playSFX(confirmSFX);
+				//playSFX(confirmSFX);
 			}else{
 				confirmed = false;
 			}
@@ -18,19 +18,18 @@ if(active)
 		selected = false
 	}
 
-
 	if (oAtuin.controlScheme == 0)
 	{
 		if(position_meeting(mouse_x, mouse_y, id))
 		{
-			if(!selected) playSFX(selectedSFX);
+			//if(!selected) playSFX(selectedSFX);
 			selected = true;
 			if(mouse_check_button_pressed(mb_left))
 			{
 				confirmed = true;
 				image_xscale = startingScale*smallScale
 				image_yscale = startingScale*smallScale
-				playSFX(confirmSFX);
+				//playSFX(confirmSFX);
 			}
 		}else{
 			selected = false;

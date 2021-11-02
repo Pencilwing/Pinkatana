@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
-x =  camera_get_view_x(view_camera[0])+view_xport[0]+(view_wport[0]/2)/2
-y =  camera_get_view_y(view_camera[0])+view_yport[0]+(view_hport[0]/2)/2
+x =  camera_get_view_x(view_camera[0])+view_xport[0]+(view_wport[0]/2)
+y =  camera_get_view_y(view_camera[0])+view_yport[0]+(view_hport[0]/2)
 
 
 btnResume.y = y+resumeY;
@@ -59,6 +59,7 @@ if(btnMainMenu.confirmed)
 {
 	oAtuin.controlsEnabled = true;
 	oAtuin.playSpeed = 1;
+	oAtuin.pause = false;
 	room_goto(rTitleScreen);
 }
 
@@ -73,6 +74,8 @@ if((btnResume.confirmed || keyboard_check_pressed(vk_escape)
 {
 	oAtuin.controlsEnabled = true;
 	oAtuin.playSpeed = 1;
+	oAtuin.pause = false;
+	
 	instance_destroy(btnResume);
 	instance_destroy(btnOptions);
 	instance_destroy(btnMainMenu);

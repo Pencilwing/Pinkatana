@@ -31,7 +31,11 @@ function atuin_create() {
 	victory = false;
 	time = 0;
 	
-	window_set_fullscreen(true);
+	//create save files
+	
+	//Make three ds maps from .ini file 
+	
+	//window_set_fullscreen(true);
 	
 	//gamestate pertinent objects
 	gamestateList = ds_list_create();

@@ -6,6 +6,7 @@ function samurai_create(){
 	
 	slashes = 0;
 	slashForce = 7;
+	slashInverted = true;
 	
 	facing = 1;
 	xBounce = 1;

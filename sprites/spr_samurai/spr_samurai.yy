@@ -24,9 +24,9 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"1c0b6600-8b00-4e1e-92cf-2592f4b09238","path":"sprites/spr_samurai/spr_samurai.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"1c0b6600-8b00-4e1e-92cf-2592f4b09238","path":"sprites/spr_samurai/spr_samurai.yy",},"LayerId":{"name":"959c17bd-1811-4ea4-bf69-101f12089b03","path":"sprites/spr_samurai/spr_samurai.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_samurai","path":"sprites/spr_samurai/spr_samurai.yy",},"resourceVersion":"1.0","name":"1c0b6600-8b00-4e1e-92cf-2592f4b09238","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"1d6ab28d-6dcb-45d3-9c53-1485006ae638","path":"sprites/spr_samurai/spr_samurai.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"1d6ab28d-6dcb-45d3-9c53-1485006ae638","path":"sprites/spr_samurai/spr_samurai.yy",},"LayerId":{"name":"f9304dfb-2fce-42f0-8f9e-665752ce0e9b","path":"sprites/spr_samurai/spr_samurai.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_samurai","path":"sprites/spr_samurai/spr_samurai.yy",},"resourceVersion":"1.0","name":"1d6ab28d-6dcb-45d3-9c53-1485006ae638","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_samurai","path":"sprites/spr_samurai/spr_samurai.yy",},
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"cb183c04-af4e-4cf0-a9c4-8fd51bbc559c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1c0b6600-8b00-4e1e-92cf-2592f4b09238","path":"sprites/spr_samurai/spr_samurai.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"bedbec75-3a0f-40af-abf7-f09474a00ade","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1d6ab28d-6dcb-45d3-9c53-1485006ae638","path":"sprites/spr_samurai/spr_samurai.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -65,7 +65,7 @@
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"959c17bd-1811-4ea4-bf69-101f12089b03","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f9304dfb-2fce-42f0-8f9e-665752ce0e9b","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

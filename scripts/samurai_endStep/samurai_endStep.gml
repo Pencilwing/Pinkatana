@@ -13,9 +13,9 @@ function samurai_endStep(){
 		directionX = mouse_x
 		directionY = mouse_y
 	}else{
-		slashB = gp_face1
-		directionX = gamepad_axis_value( oAtuin.currentGamepad, gp_axislh)+x
-		directionY = gamepad_axis_value( oAtuin.currentGamepad, gp_axislv)+y
+		slashB = gp_shoulderr
+		directionX = gamepad_axis_value( oAtuin.currentGamepad, gp_axisrh)+x
+		directionY = gamepad_axis_value( oAtuin.currentGamepad, gp_axisrv)+y
 	}
 	
 	
@@ -25,29 +25,54 @@ function samurai_endStep(){
 		state = states.idle
 	}
 	
+	
+	
+	
+	
+	//walk
 	if(onGround)
 	{
-		if(abs(xSpeed) > 1) 
+		slashes = 1;
+		if((keyboard_check(vk_left) || keyboard_check(ord("A")) || oAtuin.LAxLeft) && state = states.idle && oAtuin.controlsEnabled)
 		{
-			if(instance_exists(instance_place(x,y+1,oBlocker)))
+			if(xSpeed > 0)
+				{
+				 xSpeed = -0.1
+				}
+			xSpeed = approach(xSpeed,-2,0.5)
+		}else if((keyboard_check(vk_right) || keyboard_check(ord("D")) || oAtuin.LAxRight)  && state = states.idle && oAtuin.controlsEnabled){
+			if(xSpeed < 0)
+				{
+				 xSpeed = 0.1
+				}
+			xSpeed = approach(xSpeed,2,0.5)
+		}else if(abs(xSpeed) > 1) 
 			{
-			xSpeed = lerp(xSpeed,0,0.1*(instance_place(x,y+1,oBlocker).frictionFactor));
-			}
-			if(!instance_exists(oStopDustVFX))
-			{
-				instance_create_layer(x,y,"VFX",oStopDustVFX)
-			}else{
-				if (oStopDustVFX.image_index == 1) instance_create_layer(x-10*facing,y,"VFX",oStopDustVFX)
-			}
+				if(instance_exists(instance_place(x,y+1,oBlocker)))
+				{
+				xSpeed = lerp(xSpeed,0,0.1*(instance_place(x,y+1,oBlocker).frictionFactor));
+				}
+				if(!instance_exists(oStopDustVFX))
+				{
+					instance_create_layer(x,y,"VFX",oStopDustVFX)
+				}else if (oStopDustVFX.image_index == 1 || oStopDustVFX.image_index == 3){
+					instance_create_layer(x-10*facing,y,"VFX",oStopDustVFX)
+				}
+		}else{ xSpeed = 0;}
+	}else{
+		if((keyboard_check(vk_left) || keyboard_check(ord("A")) || oAtuin.LAxLeft) && state = states.idle && oAtuin.controlsEnabled)
+		{
+			if(xSpeed > -1.5) xSpeed = xSpeed -0.1
+		}else if((keyboard_check(vk_right) || keyboard_check(ord("D")) || oAtuin.LAxRight) && state = states.idle && oAtuin.controlsEnabled){
+			if (xSpeed < 1.5) xSpeed = xSpeed + 0.1
 		}
-		else{ xSpeed = 0;}
 	}
 	
 	//flower power up
 	flowerPowerUpCheck()
 	
 	//attack
-	if (slashPress() && (onGround || slashes > 0) && oAtuin.controlsEnabled)
+	if (slashPress() && (slashes > 0) && oAtuin.controlsEnabled)
 	{
 		if (slashes > 0) slashes --
 		xAttack = x
@@ -120,11 +145,12 @@ function attackBounce()
 							if(blocker_id.passThruY != sign(xSpeed) || blocker_id.passThruY = 0)
 							{
 								yBounce = yBounce*-1*blocker_id.bounceFactor
-								xBounce = xBounce*blocker_id.bounceFactor
+								xBounce = xBounce*slashInverted*blocker_id.bounceFactor
 								v = v*-1
+								h = h*slashInverted
 								y += sign(v)
 								ySpeed = ySpeed *-1*blocker_id.bounceFactor;
-								xSpeed = xSpeed *blocker_id.bounceFactor;
+								xSpeed = xSpeed *slashInverted*blocker_id.bounceFactor;
 						
 								///Spawn Collision VFX on point B
 								mouseYflip = directionY+ 2*(y-directionY)
@@ -185,9 +211,10 @@ function attackBounce()
 								xBounce = xBounce*-1*blocker_id.bounceFactor
 								yBounce = yBounce*blocker_id.bounceFactor
 								h = h*-1
+								v = v*slashInverted
 								x += sign(h)
 								xSpeed = xSpeed *-1*blocker_id.bounceFactor;
-								ySpeed = ySpeed *blocker_id.bounceFactor;
+								ySpeed = ySpeed *slashInverted*blocker_id.bounceFactor;
 								
 								///Spawn Collision VFX on point B
 								mouseYflip = directionY+ 2*(y-directionY)

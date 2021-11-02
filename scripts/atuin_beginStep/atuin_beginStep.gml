@@ -25,6 +25,17 @@ function atuin_beginStep(){
 		}
 	}
 	
+	//pause menu
+	if(!pause && instance_exists(oCam))
+	{
+		if (keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(currentGamepad,gp_start))
+		{
+			instance_create_layer(oCam.x,oCam.y,"UI",oPauseMenu)
+			pause = true;
+			controlsEnabled = false;
+			playSpeed = 0;
+		}
+	}
 }
 
 function victoryTimer()
@@ -37,9 +48,17 @@ function victoryTimer()
 			var minute = (time-(hour*3600)) div 60;
 			var second = time - hour*3600 - minute*60;
 			
+			hour = string(hour)
+			minute = string(minute)
+			second = string(second)
+			
+			if(string_length(hour) <= 1) hour = "0" + hour
+			if(string_length(minute) <= 1) minute = "0" + minute
+			if(string_length(second) <= 1) second = "0" + second
+			
 			victory = false;
 			
-			return string(hour)+":"+string(minute)+":"+string(second)
+			return hour+":"+minute+":"+ second
 		}
 }
 

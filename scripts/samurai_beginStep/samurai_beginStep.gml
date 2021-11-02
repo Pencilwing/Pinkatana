@@ -7,6 +7,8 @@ function samurai_beginStep() {
 	image_xscale = 1*facing
 	image_speed = oAtuin.playSpeed
 	
+
+	
 	if(place_meeting(x,y,trigger1))
 	{
 	 oDersuke.chk = 1
@@ -28,7 +30,7 @@ function samurai_beginStep() {
 		case states.idle:
 		if (onGround)
 		{
-			if(abs(xSpeed) >= 3)
+			if(abs(xSpeed) >= 2)
 			{
 				sprite_index = spr_samurai_slide
 			}else{
