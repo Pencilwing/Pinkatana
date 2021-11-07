@@ -25,6 +25,8 @@ function atuin_create() {
 	restart = false;
 	t = 0;
 	volumeLevel = 3;
+	musicLevel = 3;
+	currentOST = sNone;
 	lastRoom = 0;
 	startingTime = 0;
 	finalTime = 0;

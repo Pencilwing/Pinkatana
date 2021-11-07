@@ -100,13 +100,16 @@ function physics_endStep() {
 
 	//if, even after movement, the character is colliding with a blocker , move them in the opposite x
 	//direction until they arent
-	/*
+	
 	while(place_meeting(x,y,oBlocker))
 	{
 		var _blocker = instance_place(x,y,oBlocker);
-		x += sign(x-_blocker.x);
+		if(_blocker.passThruX == 0 && _blocker.passThruY == 0 )
+		{
+			x += sign(x-_blocker.x);
+			y += sign(y-_blocker.y);
+		}else{
+			break;
+		}
 	}
-	*/
-
-
 }

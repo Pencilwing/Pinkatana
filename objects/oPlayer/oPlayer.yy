@@ -4,7 +4,7 @@
     "path": "sprites/spr_samurai/spr_samurai.yy",
   },
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {

@@ -39,13 +39,13 @@ function samurai_endStep(){
 				{
 				 xSpeed = -0.1
 				}
-			xSpeed = approach(xSpeed,-2,0.5)
+			xSpeed = approach(xSpeed,-1,0.3)
 		}else if((keyboard_check(vk_right) || keyboard_check(ord("D")) || oAtuin.LAxRight)  && state = states.idle && oAtuin.controlsEnabled){
 			if(xSpeed < 0)
 				{
 				 xSpeed = 0.1
 				}
-			xSpeed = approach(xSpeed,2,0.5)
+			xSpeed = approach(xSpeed,1,0.3)
 		}else if(abs(xSpeed) > 1) 
 			{
 				if(instance_exists(instance_place(x,y+1,oBlocker)))
@@ -82,7 +82,7 @@ function samurai_endStep(){
 		yMouse = directionY
 		state = states.attack
 		slashVFX = instance_create_layer(x,y,"VFX",oSlash);
-		playSFX(sSlashAir);
+		playRandomSFX("sSlashAir",2);
 		slashVFX.owner = self;
 		slashVFX.image_angle = point_direction(x,y,directionX,directionY);
 		attackBounce()

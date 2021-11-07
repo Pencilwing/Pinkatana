@@ -14,6 +14,11 @@ function atuin_beginStep(){
 	LAxRight = gamepad_axis_value(currentGamepad,gp_axislh) > 0.3
 	LAxLeft = gamepad_axis_value(currentGamepad,gp_axislh) < -0.3
 	
+	if(audio_sound_get_gain(currentOST) == 0)
+	{
+		audio_stop_sound(currentOST)
+	}
+	
 	//timer
 	if(room == rEarthTerrain)
 	{

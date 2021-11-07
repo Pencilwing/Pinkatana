@@ -13,8 +13,8 @@
   "soundFile": "sNone.wav",
   "duration": 0.0,
   "parent": {
-    "name": "Sound",
-    "path": "folders/Scripts/Sound.yy",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "sNone",
