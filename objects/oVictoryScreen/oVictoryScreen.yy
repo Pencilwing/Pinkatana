@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Screens",
-    "path": "folders/Objects/Screens.yy",
+    "name": "Rooms",
+    "path": "folders/Rooms.yy",
   },
   "resourceVersion": "1.0",
   "name": "oVictoryScreen",

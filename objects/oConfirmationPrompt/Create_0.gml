@@ -2,7 +2,8 @@ camera = view_get_camera(view_current)
 cameraStartY = camera_get_view_y(camera)
 cameraFinalY = camera_get_view_y(camera)+540
 btnAmount = 2
-endSequence = false;
+nextRoom = 0
+parentMenu = 0
 
 
 btnYes = instance_create_layer(x,y,"buttons",oButton)
@@ -22,15 +23,3 @@ btnNo.sprite_index = spr_promptNo;
 
 selectedBtn = 0;
 t = 0;
-
-
-ini_open("settings.ini")
-fullscreenState = ini_read_real("settings", "fullscreen", -1);
-ini_close();
-
-if(fullscreenState != -1)
-{
-	//window_set_fullscreen(fullscreenState);
-	//room_goto_next();
-}
-

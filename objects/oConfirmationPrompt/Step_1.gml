@@ -23,20 +23,12 @@ if(oAtuin.controlScheme=1)
 
 if(btnNo.confirmed)
 {
-	ini_open("settings.ini")
-	fullscreenState = ini_write_real("settings", "fullscreen", 0);
-	ini_close();
-
-	room_goto_next();
+	if(parentMenu != 0)instance_create_layer(x,y,"UI",parentMenu)
+	instance_destroy(id);
 }
 
 if(btnYes.confirmed)
 {
-	ini_open("settings.ini")
-	fullscreenState = ini_write_real("settings", "fullscreen", 1);
-	ini_close();
-	
-	window_set_fullscreen(true);
-	btnYes.confirmed = false;
-	room_goto_next();
+	if(nextRoom == "ExitGame"){ game_end();
+	}else if(nextRoom != 0){ room_goto(nextRoom);}
 }

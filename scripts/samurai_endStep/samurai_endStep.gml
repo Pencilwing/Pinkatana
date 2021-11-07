@@ -39,13 +39,13 @@ function samurai_endStep(){
 				{
 				 xSpeed = -0.1
 				}
-			xSpeed = approach(xSpeed,-1,0.3)
+			xSpeed = approach(xSpeed,-walkSpeed,0.3)
 		}else if((keyboard_check(vk_right) || keyboard_check(ord("D")) || oAtuin.LAxRight)  && state = states.idle && oAtuin.controlsEnabled){
 			if(xSpeed < 0)
 				{
 				 xSpeed = 0.1
 				}
-			xSpeed = approach(xSpeed,1,0.3)
+			xSpeed = approach(xSpeed,walkSpeed,0.3)
 		}else if(abs(xSpeed) > 1) 
 			{
 				if(instance_exists(instance_place(x,y+1,oBlocker)))

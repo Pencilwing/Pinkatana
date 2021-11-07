@@ -59,5 +59,9 @@ if(btnCredits.confirmed)
 
 if(btnExit.confirmed)
 {
-	game_end();
+	prompt = instance_create_layer(x,y,"UI",oConfirmationPrompt)
+	prompt.nextRoom = "ExitGame";
+	prompt.parentMenu = oMainMenu;
+	//instance_destroy(id);
+	
 }

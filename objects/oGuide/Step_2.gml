@@ -11,4 +11,7 @@ if (oAtuin.controlScheme == 1)
 	}else{
 		visible = false;
 	}
+}else{
+	visible = true;
 }
+	

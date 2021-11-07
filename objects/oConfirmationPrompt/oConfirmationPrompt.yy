@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_fullscreenPromptBG",
-    "path": "sprites/spr_fullscreenPromptBG/spr_fullscreenPromptBG.yy",
+    "name": "spr_confirmationPromptBG",
+    "path": "sprites/spr_confirmationPromptBG/spr_confirmationPromptBG.yy",
   },
   "solid": false,
   "visible": true,
@@ -31,7 +31,7 @@
     "path": "folders/Objects/Screens.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oFullscreenToggle",
+  "name": "oConfirmationPrompt",
   "tags": [],
   "resourceType": "GMObject",
 }

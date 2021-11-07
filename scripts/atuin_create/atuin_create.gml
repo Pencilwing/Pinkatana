@@ -18,7 +18,7 @@ function atuin_create() {
 	gameCurrentFrame = 0
 	playSpeed = 1;
 	playSpeedDefault = 1;
-	pause =false;
+	pause = false;
 	controlsEnabled = true;
 	hitStop = false;
 	hitStopDur = 0;

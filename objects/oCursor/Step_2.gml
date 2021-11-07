@@ -16,4 +16,6 @@ if(instance_exists(oCam))
 	}else{
 		sprite_index = spr_cursorGameplay
 	}
+}else{
+	sprite_index = spr_cursorUI
 }
