@@ -30,7 +30,7 @@ ini_close();
 
 if(fullscreenState != -1)
 {
-	//window_set_fullscreen(fullscreenState);
-	//room_goto_next();
+	window_set_fullscreen(fullscreenState);
+	room_goto_next();
 }
 

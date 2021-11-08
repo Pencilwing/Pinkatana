@@ -76,6 +76,7 @@ function physics_endStep() {
 			if(_blocker.passThruX == 2)
 			{
 				x += sign(h)
+				
 			}else{
 				if(_blocker.passThruX != sign(xSpeed))
 				{
@@ -83,6 +84,7 @@ function physics_endStep() {
 					{
 						h = h*-1
 						x += sign(h)
+						
 						xSpeed = xSpeed *-1;
 					}else{
 						move_collide("x");
@@ -90,11 +92,13 @@ function physics_endStep() {
 					}
 				}else{
 					x += sign(h)
+					
 				}
 			}
 		//if collision doesn't happen, move character a pixel
 	    }else{
 			x += sign(h)
+			
 	    }
 	}
 
@@ -106,8 +110,8 @@ function physics_endStep() {
 		var _blocker = instance_place(x,y,oBlocker);
 		if(_blocker.passThruX == 0 && _blocker.passThruY == 0 )
 		{
-			x += sign(x-_blocker.x);
-			y += sign(y-_blocker.y);
+			x --
+			y --
 		}else{
 			break;
 		}

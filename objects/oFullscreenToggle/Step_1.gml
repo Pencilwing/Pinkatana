@@ -26,6 +26,8 @@ if(btnNo.confirmed)
 	ini_open("settings.ini")
 	fullscreenState = ini_write_real("settings", "fullscreen", 0);
 	ini_close();
+	window_set_fullscreen(false);
+	btnNo.confirmed = false;
 
 	room_goto_next();
 }

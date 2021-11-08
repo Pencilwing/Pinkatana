@@ -17,3 +17,6 @@ function UpdateParallax()
 }
 
 UpdateParallax()
+
+clouds.x = x - clouds.moved
+clouds.y = y

@@ -1,7 +1,7 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function samurai_endStep(){
-	
+	if(state = states.hitstun && !instance_place(x+1*facing,y+1,oBlocker)) {x -= 2*facing; xSpeed = 0;}
 	//inherit code from physics
 	event_inherited();
 	
@@ -48,6 +48,7 @@ function samurai_endStep(){
 			xSpeed = approach(xSpeed,walkSpeed,0.3)
 		}else if(abs(xSpeed) > 1) 
 			{
+				state = states.hitstun
 				if(instance_exists(instance_place(x,y+1,oBlocker)))
 				{
 				xSpeed = lerp(xSpeed,0,0.1*(instance_place(x,y+1,oBlocker).frictionFactor));
@@ -58,7 +59,10 @@ function samurai_endStep(){
 				}else if (oStopDustVFX.image_index == 1 || oStopDustVFX.image_index == 3){
 					instance_create_layer(x-10*facing,y,"VFX",oStopDustVFX)
 				}
-		}else{ xSpeed = 0;}
+		}else{ 
+			xSpeed = 0; 
+			state = states.idle;
+		}
 	}else{
 		if((keyboard_check(vk_left) || keyboard_check(ord("A")) || oAtuin.LAxLeft) && state = states.idle && oAtuin.controlsEnabled)
 		{
