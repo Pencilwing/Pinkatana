@@ -86,10 +86,13 @@ function samurai_endStep(){
 		yMouse = directionY
 		state = states.attack
 		slashVFX = instance_create_layer(x,y,"VFX",oSlash);
-		playRandomSFX("sSlashAir",2);
 		slashVFX.owner = self;
 		slashVFX.image_angle = point_direction(x,y,directionX,directionY);
+		sfxMaterial = 0;
 		attackBounce()
+		if(sfxMaterial = 0)playRandomSFX("sSlashAir",3);
+		if(sfxMaterial = 1)playRandomSFX("sSlashGround",1);
+		if(sfxMaterial = 2)playRandomSFX("sSlashMetals",3);
 		state = states.bounce
 		sprite_index = spr_samurai_roll
 		vec = vector_calc(slashForce, point_direction(xAttack,yAttack,xMouse,yMouse)+90);
@@ -167,11 +170,11 @@ function attackBounce()
 									var particleSpeed = 3
 									var particleObj = 0
 									
-									if(particleType == blocker_id.grass) particleObj = oGrassVFX; 
-									if(particleType == blocker_id.sakura) {particleObj = oPetalGrassVFX; particleAmount = 4;}
-									if(particleType == blocker_id.dirt) {particleObj = oDirtVFX; particleAmount = 6;}
-									if(particleType == blocker_id.rock) {particleObj = oSparkVFX; particleAmount = 5; particleSpeed = 5;}
-									if(particleType == blocker_id.metal) {particleObj = oSparkVFX; particleAmount = 6;particleSpeed = 5;}
+									if(particleType == blocker_id.grass) {particleObj = oGrassVFX;  sfxMaterial = 1}
+									if(particleType == blocker_id.sakura) {particleObj = oPetalGrassVFX; particleAmount = 4; ;  sfxMaterial = 1}
+									if(particleType == blocker_id.dirt) {particleObj = oDirtVFX; particleAmount = 6; ;  sfxMaterial = 1}
+									if(particleType == blocker_id.rock) {particleObj = oSparkVFX; particleAmount = 5; particleSpeed = 5;  sfxMaterial = 2}
+									if(particleType == blocker_id.metal) {particleObj = oSparkVFX; particleAmount = 6;particleSpeed = 5;  sfxMaterial = 2}
 								
 								if(particleObj != 0)
 								{	
@@ -224,6 +227,18 @@ function attackBounce()
 								mouseYflip = directionY+ 2*(y-directionY)
 								dustVFX = instance_create_layer(x,y,"VFX",oBounceDust)
 								dustVFX.image_angle = point_direction(x,y,directionX,mouseYflip)-90;
+								
+								///ground particles
+								var particleType = blocker_id.bounceFactor
+								var particleAmount = 3
+								var particleSpeed = 3
+								var particleObj = 0
+									
+								if(particleType == blocker_id.grass) {particleObj = oGrassVFX;  sfxMaterial = 1}
+								if(particleType == blocker_id.sakura) {particleObj = oPetalGrassVFX; particleAmount = 4; ;  sfxMaterial = 1}
+								if(particleType == blocker_id.dirt) {particleObj = oDirtVFX; particleAmount = 6; ;  sfxMaterial = 1}
+								if(particleType == blocker_id.rock) {particleObj = oSparkVFX; particleAmount = 5; particleSpeed = 5;  sfxMaterial = 2}
+								if(particleType == blocker_id.metal) {particleObj = oSparkVFX; particleAmount = 6;particleSpeed = 5;  sfxMaterial = 2}
 								
 							}else{
 								x += sign(h)

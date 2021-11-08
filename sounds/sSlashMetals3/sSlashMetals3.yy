@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sSlashAir1.wav",
+  "soundFile": "sSlashMetals3.wav",
   "duration": 1.480091,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sSlashAir1",
+  "name": "sSlashMetals3",
   "tags": [],
   "resourceType": "GMSound",
 }

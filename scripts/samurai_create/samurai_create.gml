@@ -8,6 +8,8 @@ function samurai_create(){
 	slashForce = 7;
 	slashInverted = true;
 	
+	sfxMaterial = 0;
+	
 	walkSpeed = 6;
 	
 	facing = 1;
