@@ -24,7 +24,7 @@ characterName = "Dersuke"
 
 Line11 = "Pink!"
 Line12 = "Off to rescue Purple? \n(WASD or the Left Analog to move around)"
-Line13 = "Remember you can slash to get over obstacles! \n(LMB or the R button) "
+Line13 = "Remember you can slash to get over obstacles! \n(Aim with Mouse or Right analog, \nSlash with LMB or the R button) "
 Line21 = "Ah right, forgot to mention. You can bounce off \nof surfaces with your slash."
 Line22 = "Different surfaces will send you flying at \ndifferent speeds!"
 Line31 = "A cherry blossom! You can slash in the air if \nyou nab them when flying around."
