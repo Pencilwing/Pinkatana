@@ -75,7 +75,7 @@ if(btnFullscreen.confirmed)
 	var full = window_get_fullscreen()
 	window_set_fullscreen(!full);
 	
-	ini_open("settings.ini")
+	ini_open("PINKsettings.ini")
 	fullscreenState = ini_write_real("settings", "fullscreen", window_get_fullscreen());
 	ini_close();
 	

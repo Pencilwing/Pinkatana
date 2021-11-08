@@ -24,7 +24,7 @@ selectedBtn = 0;
 t = 0;
 
 
-ini_open("settings.ini")
+ini_open("PINKsettings.ini")
 fullscreenState = ini_read_real("settings", "fullscreen", -1);
 ini_close();
 

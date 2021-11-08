@@ -23,7 +23,7 @@ if(oAtuin.controlScheme=1)
 
 if(btnNo.confirmed)
 {
-	ini_open("settings.ini")
+	ini_open("PINKsettings.ini")
 	fullscreenState = ini_write_real("settings", "fullscreen", 0);
 	ini_close();
 	window_set_fullscreen(false);
@@ -34,7 +34,7 @@ if(btnNo.confirmed)
 
 if(btnYes.confirmed)
 {
-	ini_open("settings.ini")
+	ini_open("PINKsettings.ini")
 	fullscreenState = ini_write_real("settings", "fullscreen", 1);
 	ini_close();
 	
