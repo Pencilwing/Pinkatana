@@ -57,14 +57,19 @@ btnExit.active = active
 
 if(btnMainMenu.confirmed)
 {
+	saveToCurrentFile()
 	oAtuin.controlsEnabled = true;
 	oAtuin.playSpeed = 1;
 	oAtuin.pause = false;
+	audio_stop_sound(sSakuya1)
 	room_goto(rTitleScreen);
 }
 
 if(btnExit.confirmed)
 {
+	
+	saveToCurrentFile()
+
 	game_end();
 }
 

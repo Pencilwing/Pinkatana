@@ -20,13 +20,29 @@ function atuin_beginStep(){
 	}
 	
 	//timer
-	if(room == rEarthTerrain)
+	if(room == rJamLevel)
 	{
-		time = current_time;
-
-		if(time == 0)
-		{
-			startingTime = current_time;
+		
+		if (!pause && timerRunning) {
+			show_debug_message(time)
+			milliseconds += ((delta_time*0.001));
+			
+			if milliseconds >= 1000
+			{
+				milliseconds -= 1000;
+				seconds += 1;
+				time += 1
+			}
+			if seconds >= 60
+			{
+				seconds -= 60;
+				minutes += 1;
+			}
+			if minutes>= 60
+			{
+				minutes -= 60;
+				hours+= 1;
+			}
 		}
 	}
 	
@@ -41,29 +57,33 @@ function atuin_beginStep(){
 			playSpeed = 0;
 		}
 	}
+	
+	if(keyboard_check_pressed(ord("T")))
+	{
+		timerVisible = !timerVisible;
+	}
+	
+	if(keyboard_check_pressed(vk_delete))
+	{
+		wipeCurrentFile(currentSave);
+	}
 }
 
 function victoryTimer()
 {
-		{
-			//returns time in seconds
-			time = floor((current_time - startingTime) /1000)
-	
-			var hour = time div 3600;
-			var minute = (time-(hour*3600)) div 60;
-			var second = time - hour*3600 - minute*60;
+		{	
+			var strHours = string(hours)
+			var strMinutes = string(minutes)
+			var strSeconds = string(seconds)
+			var strMilliseconds = string(floor(milliseconds))
 			
-			hour = string(hour)
-			minute = string(minute)
-			second = string(second)
+			if(string_length(strHours) <= 1) strHours = "0" + strHours
+			if(string_length(strMinutes) <= 1) strMinutes = "0" + strMinutes
+			if(string_length(strSeconds) <= 1) strSeconds = "0" + strSeconds
+			if(string_length(strMilliseconds) == 2) strMilliseconds = "0" + strMilliseconds
+			if(string_length(strMilliseconds) <= 1) strMilliseconds = "00" + strMilliseconds
 			
-			if(string_length(hour) <= 1) hour = "0" + hour
-			if(string_length(minute) <= 1) minute = "0" + minute
-			if(string_length(second) <= 1) second = "0" + second
-			
-			victory = false;
-			
-			return hour+":"+minute+":"+ second
+			return strHours +":"+ strMinutes +":"+ strSeconds +"."+ strMilliseconds
 		}
 }
 

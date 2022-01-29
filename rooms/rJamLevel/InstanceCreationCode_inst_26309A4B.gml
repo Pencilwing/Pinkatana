@@ -1,0 +1,2 @@
+bounceFactor = dirt;
+visible = false;

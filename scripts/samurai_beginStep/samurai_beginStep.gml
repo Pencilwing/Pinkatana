@@ -3,6 +3,18 @@ function samurai_beginStep() {
 	//inherit code from physics
 	event_inherited();
 	
+	left = getInput("left")
+	right = getInput("right")
+	up = getInput("up")
+	down = getInput("down")
+		
+	slash = getInput("slash");
+	interact = getInput("interact")
+		
+	pause = getInput("pause")
+	confirm = getInput("confirm")
+	back = getInput("back")
+	
 	if (sign(xSpeed)!=0) facing = sign(xSpeed)
 	image_xscale = 1*facing
 	image_speed = oAtuin.playSpeed

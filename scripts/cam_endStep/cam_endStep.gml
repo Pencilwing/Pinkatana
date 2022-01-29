@@ -18,8 +18,12 @@ function cam_endStep() {
 			y = lerp(y,target1.y + ((target2.y - target1.y)/2),0.1);
 		}
 		
-		oEarthBG.x = x
-		oEarthBG.y = y
+		
+		if(instance_exists(oEarthBG))
+		{
+			oEarthBG.x = x
+			oEarthBG.y = y
+		}
 		
 		camera_set_view_pos(view_camera[0],x-320,y-180)
 		

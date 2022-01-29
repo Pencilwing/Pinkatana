@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_samurai",
-    "path": "sprites/spr_samurai/spr_samurai.yy",
+    "name": "spr_slashCollisionMask",
+    "path": "sprites/spr_slashCollisionMask/spr_slashCollisionMask.yy",
   },
   "solid": false,
   "visible": true,

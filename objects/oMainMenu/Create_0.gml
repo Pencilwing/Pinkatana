@@ -4,6 +4,7 @@ cameraStartY = camera_get_view_y(camera)
 cameraFinalY = camera_get_view_y(camera)+600
 ease = 0.05
 btnAmount = 4
+active = true;
 
 btnPlay = instance_create_layer(x,y+50,"buttons",oButton)
 btnOptions = instance_create_layer(x,y+103,"buttons",oButton)
@@ -30,7 +31,7 @@ btnOptions.startingScale= 0.75
 btnCredits.startingScale= 0.75
 btnExit.startingScale = 0.75
 
-btnPlay.roomTo = rIntroStory;
+btnPlay.roomTo = rSaveMenu;
 btnOptions.roomTo = rOptionsMenu;
 btnCredits.roomTo = rCreditsMenu;
 

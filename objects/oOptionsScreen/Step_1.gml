@@ -30,7 +30,7 @@ btnVolume.image_xscale = image_xscale;
 volumePips.image_xscale = image_xscale;
 fullscreenX.image_xscale = image_xscale;
 
-show_debug_message(btnFullscreen.y)
+
 
 if(oAtuin.controlScheme=1)
 {
@@ -87,6 +87,7 @@ if(btnVolume.confirmed)
 	listenerCount = audio_get_listener_count();
 	oAtuin.volumeLevel ++
 	if (oAtuin.volumeLevel > 5) oAtuin.volumeLevel = 0;
+	audio_sound_gain(oAtuin.currentOST,(oAtuin.musicLevel*0.2)*(oAtuin.volumeLevel*0.2),0)
 	playSFX(sClickMenu);
 	btnVolume.confirmed = false;
 }

@@ -22,8 +22,8 @@ function physics_endStep() {
 	ySpeed = min(ySpeed,ySpeedMax)
 	hCounter += (xSpeed+xPushSpeed)*oAtuin.playSpeed;
 	vCounter += ySpeed*oAtuin.playSpeed;
-	h = round(hCounter);
-	v = round(vCounter);
+	h = floor(hCounter);
+	v = floor(vCounter);
 	hCounter -= h;
 	vCounter -= v;
 
@@ -75,15 +75,14 @@ function physics_endStep() {
 			var _blocker = instance_place(x+sign(h),y,oBlocker);
 			if(_blocker.passThruX == 2)
 			{
-				x += sign(h)
-				
+				moveHorizontal(h)	
 			}else{
 				if(_blocker.passThruX != sign(xSpeed))
 				{
 					if(state = states.bounce)
 					{
 						h = h*-1
-						x += sign(h)
+						moveHorizontal(h)
 						
 						xSpeed = xSpeed *-1;
 					}else{
@@ -91,14 +90,12 @@ function physics_endStep() {
 						break;
 					}
 				}else{
-					x += sign(h)
-					
+					moveHorizontal(h)
 				}
 			}
 		//if collision doesn't happen, move character a pixel
 	    }else{
-			x += sign(h)
-			
+			moveHorizontal(h)
 	    }
 	}
 
@@ -116,4 +113,31 @@ function physics_endStep() {
 			break;
 		}
 	}
+}
+
+function moveHorizontal(h)
+{
+	var onGround = check_below();
+	//code to put in a function later
+	if(onGround)
+	{
+		x += sign(h)
+		if(!check_below() && (state = states.hitstun || state = states.bounce))
+		{
+			x -= sign(h)
+		}
+	}else{x += sign(h)}
+}
+
+function physics_movementCollisions()
+{
+	var h, v;
+	xSpeed = min(xSpeed,xSpeedMax)
+	ySpeed = min(ySpeed,ySpeedMax)
+	hCounter += (xSpeed+xPushSpeed)*oAtuin.playSpeed;
+	vCounter += ySpeed*oAtuin.playSpeed;
+	h = floor(hCounter);
+	v = floor(vCounter);
+	hCounter -= h;
+	vCounter -= v;
 }

@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "name": "EarthTerrain",
+    "path": "folders/Sprites/EarthTerrain.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_bambooSingleSmall",

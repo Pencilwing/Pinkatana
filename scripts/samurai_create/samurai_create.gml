@@ -6,7 +6,8 @@ function samurai_create(){
 	
 	slashes = 0;
 	slashForce = 7;
-	slashInverted = true;
+	
+	slashInverted = oAtuin.slashInverted;
 	
 	sfxMaterial = 0;
 	
@@ -20,6 +21,10 @@ function samurai_create(){
 	
 	yB=0;
 	xB=0;
+	
+	retrieveInputMapping();
+	
+	
 	
 	instance_create_layer(x,y,"Instances",oCam)
 	instance_create_layer(x,y,"Instances",oShadow)

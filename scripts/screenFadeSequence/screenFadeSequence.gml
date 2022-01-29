@@ -3,7 +3,6 @@
 function screenFadeSequence(fadeIn,remainTime,fadeOut)
 {
 	t ++
-			show_debug_message(t)
 	
 	if (t < fadeIn)
 	{

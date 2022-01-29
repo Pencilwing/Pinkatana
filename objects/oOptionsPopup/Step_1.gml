@@ -51,7 +51,6 @@ if(oAtuin.controlScheme=1)
 
 if(btnBack.confirmed || keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(oAtuin.currentGamepad,gp_face2))
 {
-	show_debug_message("yeah its this lol")
 	oPauseMenu.active = true;
 	oPauseMenu.btnResume.visible = true;
 	oPauseMenu.btnOptions.visible = true;
@@ -83,6 +82,7 @@ if(btnVolume.confirmed)
 	listenerCount = audio_get_listener_count();
 	oAtuin.volumeLevel ++
 	if (oAtuin.volumeLevel > 5) oAtuin.volumeLevel = 0;
+	audio_sound_gain(oAtuin.currentOST,(oAtuin.musicLevel*0.2)*(oAtuin.volumeLevel*0.2),0)
 	playSFX(sClickMenu);
 	btnVolume.confirmed = false;
 }

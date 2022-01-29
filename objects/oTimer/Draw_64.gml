@@ -1,19 +1,9 @@
-/*draw_set_font(fTimer);
 
-
-if(hour <10)
+with(oAtuin){ timertime = victoryTimer();}
+if(oAtuin.timerVisible)
 {
-	 hour = "0"+string(hour)
+	draw_set_font(fTimer2)
+	draw_set_color(c_white)
+	draw_sprite(spr_TimerBg,0,1000,600)
+	draw_text(1000,600,oAtuin.timertime);
 }
-
-if(minute <10)
-{
-	 minute = "0"+string(minute)
-}
-
-if(second <10)
-{
-	 second = "0"+string(second)
-}
-
-draw_text_outlined(30,5,$13052E,c_white,string(hour)+":"+string(minute)+":"+string(second),5);

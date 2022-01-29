@@ -1,22 +1,13 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function samurai_endStep(){
-	if(state = states.hitstun && !instance_place(x+1*facing,y+1,oBlocker)) {x -= 2*facing; xSpeed = 0;}
-	//inherit code from physics
-	event_inherited();
 	
 
 	
-	if(oAtuin.controlScheme == 0)
-	{
-		slashB = mb_left
-		directionX = mouse_x
-		directionY = mouse_y
-	}else{
-		slashB = gp_shoulderr
-		directionX = gamepad_axis_value( oAtuin.currentGamepad, gp_axisrh)+x
-		directionY = gamepad_axis_value( oAtuin.currentGamepad, gp_axisrv)+y
-	}
+	
+	directionX = getInput("aim")[0];
+	directionY = getInput("aim")[1];
+	
 	
 	
 	//inertia and deceleration
@@ -25,22 +16,23 @@ function samurai_endStep(){
 		state = states.idle
 	}
 	
-	
-	
-	
-	
 	//walk
 	if(onGround)
 	{
+		gSpeed = gSpeedDefault;
 		slashes = 1;
-		if((keyboard_check(vk_left) || keyboard_check(ord("A")) || oAtuin.LAxLeft) && state = states.idle && oAtuin.controlsEnabled)
+		if((keyboard_check(vk_left) || keyboard_check(left) || oAtuin.LAxLeft) && oAtuin.controlsEnabled)
 		{
+			oAtuin.timerRunning = true;
+			state = states.idle;
 			if(xSpeed > 0)
 				{
 				 xSpeed = -0.1
 				}
 			xSpeed = approach(xSpeed,-walkSpeed,0.3)
-		}else if((keyboard_check(vk_right) || keyboard_check(ord("D")) || oAtuin.LAxRight)  && state = states.idle && oAtuin.controlsEnabled){
+		}else if((keyboard_check(vk_right) || keyboard_check(right) || oAtuin.LAxRight) && oAtuin.controlsEnabled){
+			oAtuin.timerRunning = true;
+			state = states.idle;
 			if(xSpeed < 0)
 				{
 				 xSpeed = 0.1
@@ -64,13 +56,22 @@ function samurai_endStep(){
 			state = states.idle;
 		}
 	}else{
-		if((keyboard_check(vk_left) || keyboard_check(ord("A")) || oAtuin.LAxLeft) && state = states.idle && oAtuin.controlsEnabled)
+		if( ySpeed > -5 && ((keyboard_check_pressed(vk_down) || keyboard_check_pressed(down) || oAtuin.LAxDown)) && oAtuin.controlsEnabled)
 		{
+			if(gSpeed == gSpeedDefault) ySpeed = 6
+			 gSpeed = gSpeedDefault*4
+		}
+		
+		if((keyboard_check(vk_left) || keyboard_check(left) || oAtuin.LAxLeft) && state = states.idle && oAtuin.controlsEnabled)
+		{
+			oAtuin.timerRunning = true;
 			if(xSpeed > -1.5) xSpeed = xSpeed -0.1
-		}else if((keyboard_check(vk_right) || keyboard_check(ord("D")) || oAtuin.LAxRight) && state = states.idle && oAtuin.controlsEnabled){
+		}else if((keyboard_check(vk_right) || keyboard_check(right) || oAtuin.LAxRight) && state = states.idle && oAtuin.controlsEnabled){
+			oAtuin.timerRunning = true;
 			if (xSpeed < 1.5) xSpeed = xSpeed + 0.1
 		}
 	}
+	
 	
 	//flower power up
 	flowerPowerUpCheck()
@@ -78,6 +79,9 @@ function samurai_endStep(){
 	//attack
 	if (slashPress() && (slashes > 0) && oAtuin.controlsEnabled)
 	{
+		oAtuin.timerRunning = true;
+		show_debug_message(directionX)
+		show_debug_message(directionY)
 		if (slashes > 0) slashes --
 		xAttack = x
 		yAttack = y
@@ -89,18 +93,21 @@ function samurai_endStep(){
 		slashVFX.owner = self;
 		slashVFX.image_angle = point_direction(x,y,directionX,directionY);
 		sfxMaterial = 0;
+		//sprite_index = spr_slashCollisionMask
 		attackBounce()
 		if(sfxMaterial = 0)playRandomSFX("sSlashAir",3);
 		if(sfxMaterial = 1)playRandomSFX("sSlashGround",1);
 		if(sfxMaterial = 2)playRandomSFX("sSlashMetals",3);
 		state = states.bounce
 		sprite_index = spr_samurai_roll
+		
 		vec = vector_calc(slashForce, point_direction(xAttack,yAttack,xMouse,yMouse)+90);
 		xSpeed = vec[0]*xBounce;
 		ySpeed = vec[1]*yBounce;
 		xBounce = 1;
 		yBounce = 1;
 		bounceFactor = 1;
+		gSpeed = gSpeedDefault
 	}
 	
 	if(tAttack > 0)
@@ -108,6 +115,17 @@ function samurai_endStep(){
 		tAttack--
 		if(tAttack % 2 != 0 )instance_create_layer(x,y,"VFX",oPetalVFX);
 	}
+	
+	//inherit code from physics
+	event_inherited();
+	
+	//save position in current save
+	if(onGround && state == states.idle)
+	{
+		oAtuin.currentSave[2] = x;
+		oAtuin.currentSave[3] = y;
+	}
+
 	
 }
 
@@ -218,10 +236,10 @@ function attackBounce()
 								xBounce = xBounce*-1*blocker_id.bounceFactor
 								yBounce = yBounce*blocker_id.bounceFactor
 								h = h*-1
-								v = v*slashInverted
+								v = v
 								x += sign(h)
 								xSpeed = xSpeed *-1*blocker_id.bounceFactor;
-								ySpeed = ySpeed *slashInverted*blocker_id.bounceFactor;
+								ySpeed = ySpeed *blocker_id.bounceFactor;
 								
 								///Spawn Collision VFX on point B
 								mouseYflip = directionY+ 2*(y-directionY)
@@ -248,6 +266,8 @@ function attackBounce()
 			    }else{
 					x += sign(h)
 			    }
+				
+				
 			}
 
 				//if, even after movement, the character is colliding with a blocker , move them in the opposite x
@@ -269,9 +289,12 @@ function slashPress()
 {
 	if (oAtuin.controlScheme = 0)
 	{
-		return mouse_check_button_pressed(slashB)
+		if(slash == mb_left || slash == mb_right || slash == mb_middle ){	
+			return mouse_check_button_pressed(slash)
+								}
+		else{	return keyboard_check_pressed(slash)}
 	}else{
-		return gamepad_button_check_pressed(oAtuin.currentGamepad,slashB)
+		return gamepad_button_check_pressed(oAtuin.currentGamepad,slash)
 	}
 }
 

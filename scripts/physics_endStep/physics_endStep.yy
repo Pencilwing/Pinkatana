@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Pinkatana",
-    "path": "Pinkatana.yyp",
+    "name": "Physics",
+    "path": "folders/Scripts/Physics.yy",
   },
   "resourceVersion": "1.0",
   "name": "physics_endStep",

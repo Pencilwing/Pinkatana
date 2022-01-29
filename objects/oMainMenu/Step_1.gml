@@ -44,12 +44,29 @@ if(oAtuin.controlScheme=1)
 
 if(btnPlay.confirmed)
 {
+	oAtuin.timerRunning = false;
 	room_goto(btnPlay.roomTo);
 }
 
 if(btnOptions.confirmed)
 {
+	
+	instance_create_depth(x,y+120,90,oInputMappingPopup);
+	btnPlay.visible = false;
+	btnOptions.visible = false;
+	btnCredits.visible = false;
+	btnExit.visible = false;
+	btnPlay.active = false;
+	btnOptions.active= false;
+	btnCredits.active = false;
+	btnExit.active = false;
+	visible = false;
+	active = false;
+	btnOptions.confirmed = false;
+	/*
 	room_goto(btnOptions.roomTo);
+	btnOptions.confirmed = false;
+	*/
 }
 
 if(btnCredits.confirmed)
